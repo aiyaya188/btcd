@@ -456,10 +456,12 @@ func (msg *MsgTx) BtcDecode(r io.Reader, pver uint32, enc MessageEncoding) error
 
 		// At the moment, the flag MUST be WitnessFlag (0x01). In the future
 		// other flag types may be supported.
-		if flag[0] != WitnessFlag {
-			str := fmt.Sprintf("witness tx but flag byte is %x", flag)
-			return messageError("MsgTx.BtcDecode", str)
-		}
+		/*
+			if flag[0] != WitnessFlag {
+				str := fmt.Sprintf("witness tx but flag byte is %x", flag)
+				return messageError("MsgTx.BtcDecode", str)
+			}
+		*/
 
 		// With the Segregated Witness specific fields decoded, we can
 		// now read in the actual txin count.
